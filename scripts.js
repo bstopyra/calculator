@@ -2,6 +2,7 @@ let operator = "";
 let num1 = 0;
 let num2 = 0;
 const operators = "+-*/%";
+let zeroSwitch = 0;
 
 const resultBar = document.getElementById("resultNum");
 
@@ -13,6 +14,7 @@ const removeTransition = (e) => {
 window.addEventListener("keydown", (e) => {
   let keyDown = e.key;
   const key = document.querySelector(`button[key='${keyDown}']`);
+  if (!key) return;
   key.classList.add("clicked");
   if (resultBar.value === "error") {
     resultBar.value = "0";
@@ -20,6 +22,7 @@ window.addEventListener("keydown", (e) => {
   if (keyDown === "Enter") {
     num2 = resultBar.value;
     operate(+num1, operator, +num2);
+    zeroSwitch = 1;
   } else if (operators.includes(keyDown)) {
     operatorHandler(keyDown);
   } else if (keyDown === "Escape") {
@@ -33,7 +36,12 @@ window.addEventListener("keydown", (e) => {
       resultBar.value = keyDown;
     }
   } else if (parseInt(keyDown, 10)) {
-    resultBar.value += keyDown;
+    if (zeroSwitch) {
+      zeroSwitch = 0;
+      resultBar.value = keyDown;
+    } else {
+      resultBar.value += keyDown;
+    }
   }
   setTimeout(() => {
     key.classList.remove("clicked");
@@ -93,6 +101,7 @@ const calculatorHandler = (button) => {
   if (button === "=") {
     num2 = resultBar.value;
     operate(+num1, operator, +num2);
+    zeroSwitch = 1;
   } else if (operators.includes(button)) {
     operatorHandler(button);
   } else if (button === "clear") {
@@ -106,7 +115,12 @@ const calculatorHandler = (button) => {
   } else if (resultBar.value === "0") {
     resultBar.value = button;
   } else {
-    resultBar.value += button;
+    if (zeroSwitch) {
+      zeroSwitch = 0;
+      resultBar.value = button;
+    } else {
+      resultBar.value += button;
+    }
   }
 };
 
@@ -138,7 +152,7 @@ const clearFunc = () => {
 const operatorHandler = (button) => {
   num1 = resultBar.value;
   operator = button;
-  resultBar.value = 0;
+  zeroSwitch = 1;
 };
 
 const backspaceFunc = () => {
