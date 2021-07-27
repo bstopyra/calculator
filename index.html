@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>Calculator</title>
   </head>
   <body>
@@ -14,60 +20,74 @@
           <input id="resultNum" disabled value="0" />
         </div>
       </div>
+      <div id="row0" class="row">
+        <div class="cell sign">
+          <button id="clear" key="Escape">AC</button>
+        </div>
+        <div class="cell sign">
+          <button id="backspace" key="Backspace">←</button>
+        </div>
+        <div class="cell sign">
+          <button id="%" key="%">%</button>
+        </div>
+        <div class="cell operator">
+          <button id="/" key="/">/</button>
+        </div>
+      </div>
       <div id="row1" class="row">
-        <div class="cell">
-          <button id="7">7</button>
+        <div class="cell numb">
+          <button id="7" key="7">7</button>
         </div>
-        <div class="cell">
-          <button id="8">8</button>
+        <div class="cell numb">
+          <button id="8" key="8">8</button>
         </div>
-        <div class="cell">
-          <button id="9">9</button>
+        <div class="cell numb">
+          <button id="9" key="9">9</button>
         </div>
-        <div class="cell">
-          <button id="/">/</button>
+        <div class="cell operator">
+          <button id="*" key="*">*</button>
         </div>
       </div>
       <div id="row2" class="row">
-        <div class="cell">
-          <button id="4">4</button>
+        <div class="cell numb">
+          <button id="4" key="4">4</button>
         </div>
-        <div class="cell">
-          <button id="5">5</button>
+        <div class="cell numb">
+          <button id="5" key="5">5</button>
         </div>
-        <div class="cell">
-          <button id="6">6</button>
+        <div class="cell numb">
+          <button id="6" key="6">6</button>
         </div>
-        <div class="cell">
-          <button id="*">*</button>
+        <div class="cell operator">
+          <button id="-" key="-">-</button>
         </div>
       </div>
       <div id="row3" class="row">
-        <div class="cell">
-          <button id="1">1</button>
+        <div class="cell numb">
+          <button id="1" key="1">1</button>
         </div>
-        <div class="cell">
-          <button id="2">2</button>
+        <div class="cell numb">
+          <button id="2" key="2">2</button>
         </div>
-        <div class="cell">
-          <button id="3">3</button>
+        <div class="cell numb">
+          <button id="3" key="3">3</button>
         </div>
-        <div class="cell">
-          <button id="-">-</button>
+        <div class="cell operator">
+          <button id="+" key="+">+</button>
         </div>
       </div>
       <div id="row4" class="row">
-        <div class="cell">
-          <button id="clear">c</button>
+        <div class="cell numb">
+          <button id="+/-">+/-</button>
         </div>
-        <div class="cell">
-          <button id="0">0</button>
+        <div class="cell numb">
+          <button id="0" key="0">0</button>
         </div>
-        <div class="cell">
-          <button id="=">=</button>
+        <div class="cell numb">
+          <button id="." key=".">.</button>
         </div>
-        <div class="cell">
-          <button id="+">+</button>
+        <div class="cell operator">
+          <button id="=" key="Enter">=</button>
         </div>
       </div>
     </div>
