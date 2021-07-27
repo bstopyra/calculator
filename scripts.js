@@ -69,9 +69,7 @@ const modalFunc = (a, b) => {
 };
 
 const operate = (a, operator, b) => {
-  if (resultBar.value === NaN) {
-    resultBar.value = 0;
-  }
+  
   switch (operator) {
     case "+":
       handleOperatorCase(addFunc(a, b));
