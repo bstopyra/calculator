@@ -138,6 +138,7 @@ const clearFunc = () => {
 const operatorHandler = (button) => {
   num1 = resultBar.value;
   operator = button;
+  resultBar.value = 0;
 };
 
 const backspaceFunc = () => {
