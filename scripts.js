@@ -14,6 +14,9 @@ window.addEventListener("keydown", (e) => {
   let keyDown = e.key;
   const key = document.querySelector(`button[key='${keyDown}']`);
   key.classList.add("clicked");
+  if (resultBar.value === "error") {
+    resultBar.value = "0";
+  }
   if (keyDown === "Enter") {
     num2 = resultBar.value;
     operate(+num1, operator, +num2);
@@ -50,7 +53,7 @@ const multiplyFunc = (a, b) => {
 };
 
 const divideFunc = (a, b) => {
-  return b !== 0 ? a / b : "ure an idiot";
+  return b !== 0 ? a / b : "error";
 };
 
 const modalFunc = (a, b) => {
@@ -58,6 +61,9 @@ const modalFunc = (a, b) => {
 };
 
 const operate = (a, operator, b) => {
+  if (resultBar.value === NaN) {
+    resultBar.value = 0;
+  }
   switch (operator) {
     case "+":
       handleOperatorCase(addFunc(a, b));
@@ -75,12 +81,15 @@ const operate = (a, operator, b) => {
       handleOperatorCase(modalFunc(a, b));
       break;
     default:
-      resultBar.value = "lmao";
+      resultBar.value = "error";
       break;
   }
 };
 
 const calculatorHandler = (button) => {
+  if (resultBar.value === "error") {
+    resultBar.value = "0";
+  }
   if (button === "=") {
     num2 = resultBar.value;
     operate(+num1, operator, +num2);
@@ -129,7 +138,6 @@ const clearFunc = () => {
 const operatorHandler = (button) => {
   num1 = resultBar.value;
   operator = button;
-  resultBar.value = 0;
 };
 
 const backspaceFunc = () => {
